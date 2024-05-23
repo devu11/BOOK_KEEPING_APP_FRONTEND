@@ -1,6 +1,7 @@
 import React from "react";
-import image from "../images/wallpaper.avif"
-import"./Home.css"
+import { Link } from "react-router-dom";
+import image from "../images/wallpaper.avif";
+import "./Home.css";
 
 function Home() {
   return (
@@ -11,7 +12,9 @@ function Home() {
           style={{ height: "91.5vh" }}
         >
           <h2 style={{ fontSize: "70px" }}>Book Catlog </h2>
-          <button className="viewBook my-3">View Books</button>
+          <Link to="books" className="viewBook my-3 ">
+            View Books
+          </Link>
         </div>
         <div
           className="col-lg-6 d-flex justify-content-center align-items-end flex-column"
