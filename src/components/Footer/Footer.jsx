@@ -7,6 +7,7 @@ function Footer() {
       style={{ borderTop: "1px solid white" }}
     >
       <h6>Developed By Devika Nakulan</h6>
+      <p>Machine task</p>
     </div>
   );
 }

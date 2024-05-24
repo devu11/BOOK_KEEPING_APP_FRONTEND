@@ -45,7 +45,7 @@ function BooksSection({ data }) {
   return (
     <div className="container" style={{ maxHeight: "80vh", overflowY: "auto" }}>
       <div className="row">
-        {data&&
+        {data &&
           data.map((item) => (
             <div className="col-md-4 col-sm-6" key={item._id}>
               <div
