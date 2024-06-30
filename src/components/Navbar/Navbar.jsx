@@ -10,6 +10,7 @@ function Navbar() {
     navigate(`/search?query=${searchQuery}`);
   };
 
+  
   return (
     <div>
       <nav className="navbar navbar-expand-lg bg-dark" style={{ borderBottom: "1px solid white" }}>
