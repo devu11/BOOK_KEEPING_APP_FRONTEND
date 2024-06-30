@@ -23,6 +23,8 @@ function Navbar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <Link className="nav-item nav-link active text-white" to="/">Home</Link>
+              <Link className="nav-item nav-link active text-white" to="/login">Login</Link>
+              <Link className="nav-item nav-link active text-white" to="/signup">Signup</Link>
               <Link className="nav-item nav-link active text-white" to="/books">Books</Link>
               <Link className="nav-item nav-link active text-white" to="/addBooks">Add Books</Link>
             </ul>
