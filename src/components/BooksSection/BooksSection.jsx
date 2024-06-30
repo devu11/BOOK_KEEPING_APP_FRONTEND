@@ -6,6 +6,8 @@ import Swal from "sweetalert2";
 function BooksSection({ data }) {
   const [show, setShow] = useState(false);
   const [selectedBook, setSelectedBook] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const booksPerPage = 3;
 
   const handleClose = () => setShow(false);
   const handleShow = (book) => {
@@ -42,11 +44,19 @@ function BooksSection({ data }) {
     setSelectedBook({ ...selectedBook, [name]: value });
   };
 
+  const indexOfLastBook = currentPage * booksPerPage;
+  const indexOfFirstBook = indexOfLastBook - booksPerPage;
+  const currentBooks = data.slice(indexOfFirstBook, indexOfLastBook);
+
+  const totalPages = Math.ceil(data.length / booksPerPage);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
     <div className="container" style={{ maxHeight: "80vh", overflowY: "auto" }}>
       <div className="row">
-        {data &&
-          data.map((item) => (
+        {currentBooks &&
+          currentBooks.map((item) => (
             <div className="col-md-4 col-sm-6" key={item._id}>
               <div
                 className="m-3"
@@ -68,7 +78,6 @@ function BooksSection({ data }) {
                     src={item.image}
                     alt={item.title}
                   />
-                  
                 </div>
                 <div className="p-2">
                   <h6 style={{ fontSize: "15px" }} className="text-white">
@@ -157,6 +166,24 @@ function BooksSection({ data }) {
           </Modal.Footer>
         </Modal>
       )}
+
+      <nav>
+        <ul className="pagination justify-content-center">
+          {Array.from({ length: totalPages }, (_, index) => (
+            <li
+              key={index + 1}
+              className={`page-item ${currentPage === index + 1 ? "active" : ""}`}
+            >
+              <button
+                className="page-link"
+                onClick={() => paginate(index + 1)}
+              >
+                {index + 1}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </div>
   );
 }
