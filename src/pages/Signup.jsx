@@ -12,7 +12,6 @@ function Signup() {
     console.log('User signed up:', { firstName, lastName, email, phoneNumber, password });
   };
 
-  
   return (
     <div>
       <h2>Signup</h2>
